@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    h3 Bienvenido #{usuario.usuario}
+
+    table.table.table-striped
+        thead
+            tr
+                th Alumno
+                th Profesor
+                th Materia
+                th Nota
+                th Acciones
+        tbody
+            each curso in cursos
+                tr
+                    td= curso.alumno.apellido + ", " + curso.alumno.nombre
+                    td= curso.profesor
+                    td= curso.materia
+                    td= curso.calificacion
+                    td
+                        a.btn.btn-primary(href=`/profesor/agregarNota/${curso._id}`) Agregar Nota
+                    
+    br
+    a.btn.btn-secondary.mt-3(href="/logout") Salir

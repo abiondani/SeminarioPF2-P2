@@ -1,0 +1,30 @@
+[
+    {
+        "_id": 6000001,
+        "nombre": "Modelado y Diseño de Software"
+    },
+    {
+        "_id": 6000002,
+        "nombre": "Metodología de Prueba de Sistemas"
+    },
+    {
+        "_id": 6000003,
+        "nombre": "Lógica Computacional"
+    },
+    {
+        "_id": 6000004,
+        "nombre": "Desarrollo de Sistemas Orientado a Objetos"
+    },
+    {
+        "_id": 6000005,
+        "nombre": "Ingeniería de Software"
+    },
+    {
+        "_id": 6000006,
+        "nombre": "Técnica de Programación"
+    },
+    {
+        "_id": 6000007,
+        "nombre": "Administración de Base de Datos"
+    }    
+]

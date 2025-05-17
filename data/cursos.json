@@ -1,0 +1,58 @@
+[
+    {
+        "_id": 30000001,
+        "materia": "Modelado y Diseño de Software",
+        "profesor": "Sassi, Vanina",
+        "alumno": 2000001,
+        "calificacion": 5
+    },
+    {
+        "_id": 30000002,
+        "materia": "Modelado y Diseño de Software",
+        "profesor": "Sassi, Vanina",
+        "alumno": 2000002,
+        "calificacion": 0
+    },
+    {
+        "_id": 30000003,
+        "materia": "Metodología de Prueba de Sistemas",
+        "profesor": "Sassi, Vanina",
+        "alumno": 2000001,
+        "calificacion": 0
+    },
+    {
+        "_id": 30000004,
+        "materia": "Lógica Computacional",
+        "profesor": "Sassi, Vanina",
+        "alumno": 2000002,
+        "calificacion": 6
+    },
+    {
+        "_id": 30000005,
+        "materia": "Técnica de Programación",
+        "profesor": "Sassi, Vanina",
+        "alumno": 2000001,
+        "calificacion": 10
+    },
+    {
+        "_id": 30000006,
+        "materia": "Técnica de Programación",
+        "profesor": "Sassi, Vanina",
+        "alumno": 2000002,
+        "calificacion": 1
+    },
+    {
+        "_id": 30000007,
+        "materia": "Base de Datos",
+        "profesor": "Sassi, Vanina",
+        "alumno": 2000001,
+        "calificacion": 0
+    },
+    {
+        "_id": 30000008,
+        "materia": "Base de Datos",
+        "profesor": "Sassi, Vanina",
+        "alumno": 2000002,
+        "calificacion": 8
+    }
+]

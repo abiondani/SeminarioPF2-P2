@@ -1,0 +1,56 @@
+extends ../layout
+
+block content
+    h3 Listado de cursos
+
+    table.table.table-striped
+        thead
+            tr
+                th Materia
+                th Alumno
+                th Profesor            
+                th Nota
+                th Acciones
+        tbody
+            each curso in cursos
+                tr  
+                    td= curso.materia
+                    td= curso.alumno.apellido + ", " + curso.alumno.nombre
+                    td= curso.profesor                    
+                    th= curso.calificacion
+                    td
+                        a.btn.btn-primary(href=`/administrativo/curso/edit/${curso._id}`) Editar
+                        a.btn.btn-danger(href="#" onclick=`confirmarEliminacion("${usuario.usuario}",${curso._id}, "${curso.alumno.apellido}, ${curso.alumno.nombre}", "${curso.materia}")`) Dar de baja
+                        
+
+    br
+    a.btn.btn-secondary.mt-3(href=`/administrativo`) Volver al menú principal
+
+
+    //- Modal para confirmar eliminación
+    .modal.fade#confirmarEliminacionModal(tabindex="-1" role="dialog")
+        .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    h5.modal-title Escuela Italiana
+                    button.close(type="button" data-dismiss="modal" aria-label="Close")
+                        span(aria-hidden="true") &times;
+                .modal-body
+                    p ¿Estás seguro de que deseas eliminar el alumno <strong id="nombreAlumno"></strong> de la materia <strong id="materia"></strong> ?
+                .modal-footer
+                    button.btn.btn-secondary(type="button" data-dismiss="modal") Cancelar
+                    button.btn.btn-danger(type="button" id="confirmarEliminacionBtn") Eliminar
+
+    script.
+        function confirmarEliminacion(usuario,id, nombre, materia) {
+            document.getElementById('nombreAlumno').innerText = nombre;
+            document.getElementById('materia').innerText = materia;
+
+            // Mostrar el modal
+            $('#confirmarEliminacionModal').modal('show');
+
+            // El botón de eliminar 
+            document.getElementById('confirmarEliminacionBtn').onclick = function () {
+                window.location.href = `/administrativo/curso/delete/${id}`;
+            };
+        }

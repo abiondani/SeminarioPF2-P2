@@ -1,0 +1,61 @@
+extends ../layout
+
+block content
+    h3 Editar Curso
+
+    form(action=`/profesor/curso/update/${curso._id}`, method="POST")
+        input(type="hidden" name="_id" value=curso._id)
+        .form-group
+            label(for="alumnoID") ID de Alumno:
+            input.form-control(type="number" name="alumnoID" value=curso.alumno._id required readonly=true)
+        .form-group
+            label(for="nombre") Nombre:
+            input.form-control(type="text" name="nombre" value=curso.alumno.nombre required readonly= true)
+        .form-group
+            label(for="apellido") Apellido:
+            input.form-control(type="text" name="apellido" value=curso.alumno.apellido required  readonly=true)
+        .form-group
+            label(for="materia") Materia:
+            input.form-control(type="text" name="materia" value=curso.materia required readonly=true)
+        .form-group
+            label(for="profesor") Profesor:
+            input.form-control(type="text" name="profesor" value=curso.profesor required readonly=true)
+        .form-group
+            label(for="calificacion") Calificacion:
+            input.form-control(type="number" name="calificacion" min="0" max="10" value=curso.calificacion required)        
+        button#guardar.btn.btn-success(type="submit") Actualizar
+    
+    if success
+        .alert.alert-success(role="alert")
+            | #{success}.
+        p.small.text-muted.mt-3
+            | Redirigiendo en 
+            span#cuenta-regresiva 2
+            |  segundos...            
+
+        script.
+            var countdownElement = document.getElementById('cuenta-regresiva');
+            var secondsRemaining = 2;
+            function updateCountdown() {
+                if (secondsRemaining > 0) {
+                    countdownElement.textContent = secondsRemaining;
+                    secondsRemaining--;
+                } else {
+                    window.location.href = `/profesor`;
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.getElementById('guardar').disabled = true;
+                const volver = document.getElementById('volver');
+                volver.classList.add('disabled');
+                volver.addEventListener('click', function(event) {
+                    event.preventDefault();
+                });
+                setInterval(updateCountdown, 1000);
+            });
+    if error
+        .alert.alert-danger(role="alert")
+            | #{error}
+
+    a#volver.btn.btn-secondary.mt-3(href=`/profesor`) Volver a la lista
